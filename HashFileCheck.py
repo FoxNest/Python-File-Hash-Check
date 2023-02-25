@@ -70,13 +70,13 @@ for i in range(len(FilesNames)):
 GoodFiles = []
 for i in range(len(FileHashes)):
     for j in range(len(FileHashes)):
-        if SiteHashes[i] in FileHashes[j]:
+        if SiteHashes[i].lower() in FileHashes[j].lower():
             print(bcolors.OKGREEN + "GOOD" + bcolors.ENDC + ": " + FilesNames[j])
             GoodFiles.append(FilesNames[j])
 
 # !Brute force! Iterates through to see which file is in FileNames and not GoodFiles to determine which, if any files failed the check
 for i in range(len(FilesNames)):
-    if FilesNames[i] in GoodFiles:
+    if FilesNames[i].lower() in GoodFiles.lower():
         pass
     else:
         print(bcolors.FAIL + "FAIL" + bcolors.ENDC + ": " + FilesNames[i])
